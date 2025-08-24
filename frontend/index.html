@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Photo Space</title>
+  <meta name="description" content="A fast, responsive gallery to showcase my photos." />
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300d4ff'/%3E%3Ctext x='50' y='57' text-anchor='middle' font-size='48' fill='white' font-family='Arial, Helvetica, sans-serif'%3EMP%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header glass">
+    <div class="brand">
+      <div class="logo">📸</div>
+      <div class="titles">
+        <h1>Imran X Ms Dhoni</h1>
+        <p class="sub">A unique, smooth gallery for any device</p>
+      </div>
+    </div>
+    <div class="controls">
+      <input id="search" class="search" type="search" placeholder="Search photos by caption or tags..." aria-label="Search photos" />
+      <button id="themeToggle" class="btn" aria-label="Toggle theme">🌓</button>
+      <a class="btn outline" href="#" id="installBtn" style="display:none;">Install App</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero glass">
+      <div class="filmstrip">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="hero-text">Drop your photos in and shine.</p>
+    </section>
+
+    <section id="tags" class="tags"></section>
+
+    <section id="gallery" class="gallery" aria-live="polite"></section>
+
+    <template id="photoCardTmpl">
+      <article class="card">
+        <div class="img-wrap">
+          <img loading="lazy" decoding="async" />
+        </div>
+        <div class="meta">
+          <h3 class="caption"></h3>
+          <div class="taglist"></div>
+        </div>
+      </article>
+    </template>
+  </main>
+
+  <dialog id="lightbox">
+    <button class="close" aria-label="Close">✕</button>
+    <figure>
+      <img id="lbImg" alt="" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+  </dialog>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> • Built with vanilla HTML/CSS/JS • Fast • PWA</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
